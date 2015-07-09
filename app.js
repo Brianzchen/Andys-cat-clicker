@@ -1,36 +1,63 @@
+var model = {
+	"cats": [
+			{
+				"name": "Kitty",
+				"image": "images/cat_picture1.jpg",
+				"click": 0,
+				"list": 1
+			},
+			{
+				"name": "Kitty",
+				"image": "images/cat_picture2.jpg",
+				"click": 0,
+				"list": 2
+			},
+			{
+				"name": "Kitty",
+				"image": "images/cat_picture3.jpg",
+				"click": 0,
+				"list": 3
+			},
+			{
+				"name": "Kitty",
+				"image": "images/cat_picture4.jpg",
+				"click": 0,
+				"list": 4
+			},
+			{
+				"name": "Kitty",
+				"image": "images/cat_picture5.jpg",
+				"click": 0,
+				"list": 5
+			},
+			{
+				"name": "Kitty",
+				"image": "images/cat_picture6.jpg",
+				"click": 0,
+				"list": 6
+			}
+		]
+};
 
-var cats = $(".cat");
-var buttons = $("button");
-
-function hideAllCats(){
-	for (var i=0; i<cats.length; i++){
-		$(cats[i]).hide();
+var catList = {
+	render: function() {
+		for (i = 0; i < model.cats.length; i++) {
+			var currentCat = model.cats[i];
+			var button = '<button id="' currentCat.list + '">' + currentCat.name + '</button>';
+			$("#catList").append(button);
+		}
 	}
-}
 
-function bindButtonToCat(idNumber){
-	$("#button"+idNumber).click(function(){
-		hideAllCats();
-		$("#cat"+idNumber).show();
-	})
-}
+};
 
-function bindCounterToCat(idNumber){
-	var cat = "#cat"+idNumber
-	$(cat).click(function(){
-		var count = $(cat+" > .counter").text();
-		count = parseInt(count) + 1;
-		$(cat+" > .counter").text(count);
-	})
-}
+var catImage = {
 
-for (var i=1; i<=buttons.length; i++){
-	bindButtonToCat(i);
-}
+};
 
-for (var i=1; i<=cats.length; i++){
-	bindCounterToCat(i);
-}
+var octopus = {
+	init: function() {
+		catList.render();
+	}
+};
 
-hideAllCats();
-$("#cat1").show();
+octopus.init();
