@@ -72,11 +72,35 @@ var catImageClicks = {
 	}
 };
 
+var adminControls = {
+	init: function() {
+		var adminButton = '<button id="adminButton">Admin</button>';
+		$("#admin").append(adminButton);
+	},
+	launch: function() {
+		$("#admin").empty();
+		var adminButton = '<button id="adminButton">Admin</button>';
+		$("#admin").append(adminButton);
+		var catName = '<form>Cat Name<input type="text" id="newCatName">';
+		var catUrl = '<br>Cat URL<input type="text" id="newCatUrl"></form>';
+		$("#admin").append(catName + catUrl);
+		var saveButton = '<button id="save">Save</button>';
+		var cancelButton = '<button id="cancel">Cancel</button>';
+		$("#admin").append(cancelButton);
+		$("#admin").append(saveButton);
+	},
+	cancel: function() {
+		$("#admin").empty();
+		this.init();
+	}
+}
+
 var octopus = {
 	init: function() {
 		catList.render();
 		catImage.render();
 		catImageClicks.render();
+		adminControls.init();
 	},
 	click: function(data) {
 		if (data.toElement.className === "cat") {
@@ -88,6 +112,12 @@ var octopus = {
 		model.currentCat = data.toElement.id;
 		catImage.render();
 		catImageClicks.render();
+	},
+	admin: function() {
+		adminControls.launch();
+	},
+	adminCancel: function() {
+		adminControls.cancel();
 	}
 };
 
@@ -97,4 +127,14 @@ $("#catImage").click(function(data) {
 });
 $(".buttons").click(function(data) {
 	octopus.buttonPress(data);
+});
+$("#adminButton").click(function() {
+	octopus.admin();
+});
+$("#save").click(function() {
+
+});
+$("#cancel").click(function() {
+	octopus.adminCancel();
+	console.log("hi");
 });
