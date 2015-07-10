@@ -56,7 +56,7 @@ var catImage = {
 		var catSpace = $("#catImage");
 		catSpace.empty();
 		var catId = model.currentCat;
-		var image = '<img id="cat' + model.cats[catId].list + '" src="' + model.cats[catId].image + '"></img>';
+		var image = '<img class="cat" src="' + model.cats[catId].image + '"></img>';
 		catSpace.append(image);
 	}
 };
@@ -78,9 +78,11 @@ var octopus = {
 		catImage.render();
 		catImageClicks.render();
 	},
-	click: function() {
-		model.cats[model.currentCat].click++;
-		catImageClicks.render();
+	click: function(data) {
+		if (data.toElement.className === "cat") {
+			model.cats[model.currentCat].click++;
+			catImageClicks.render();
+		}
 	},
 	buttonPress: function(data) {
 		model.currentCat = data.toElement.id;
@@ -90,8 +92,8 @@ var octopus = {
 };
 
 octopus.init();
-$("#catImage").click(function() {
-	octopus.click();
+$("#catImage").click(function(data) {
+	octopus.click(data);
 });
 $(".buttons").click(function(data) {
 	octopus.buttonPress(data);
