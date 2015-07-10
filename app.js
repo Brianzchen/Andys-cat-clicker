@@ -56,13 +56,9 @@ var catImage = {
 		var catSpace = $("#catImage");
 		catSpace.empty();
 		var catId = model.currentCat;
-		var image = document.createElement("img");
-		image.src = model.cats[catId].image;
-		image.alt = "What a cute kitty";
-		image.class = "theCat";
+		var image = '<img id="cat' + model.cats[catId].list + '" src="' + model.cats[catId].image + '"></img>';
 		catSpace.append(image);
 	}
-
 };
 
 var catImageClicks = {
@@ -74,7 +70,6 @@ var catImageClicks = {
 		var formattedTimesClicked = "<p>" + timesClicked + "</p>";
 		catSpace.append(formattedTimesClicked);
 	}
-
 };
 
 var octopus = {
@@ -95,7 +90,7 @@ var octopus = {
 };
 
 octopus.init();
-$(".theCat").click(function() {
+$("#catImage").click(function() {
 	octopus.click();
 });
 $(".buttons").click(function(data) {
