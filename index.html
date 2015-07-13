@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <title>Cat Clicker Premium</title>
-    <script type='text/javascript' src='knockout.js'></script>
 </head>
 <body>
   <header>
@@ -13,9 +12,11 @@
   </div>
   <div id="catImage">
   </div>
-  <div id="catImageClicks">
-  </div>
+  <img src="images/cat_picture1.jpg" data-bind="click: clicker">
+  <p data-bind="text: catType"></p>
+  <p data-bind="text: catAge"></p>
 </body>
 </html>
+<script type='text/javascript' src='knockout.js'></script>
 <script src="jquery.js"></script>
 <script src="app.js"></script>
