@@ -8,13 +8,9 @@
   <header>
     <h1>Cat Clicker Premium Pro!</h1>
   </header>
-	<div id="catList">
-  </div>
-  <div id="catImage">
-  </div>
-  <img src="images/cat_picture1.jpg" data-bind="click: clicker">
   <p data-bind="text: catType"></p>
   <p data-bind="text: catAge"></p>
+  <img src="images/cat_picture1.jpg" data-bind="click: clicker">
   <ul data-bind="foreach: catNickname">
     <li data-bind="text: $data"></li>
   </ul>
