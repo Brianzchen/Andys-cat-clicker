@@ -84,6 +84,9 @@ var myViewModel = {
 		catList.render();
 		catImage.render();
 		catImageClicks.render();
+		for (i = 0; i < model.cats[model.currentCat].nickName.length; i++) {
+			this.catNickname.push(model.cats[model.currentCat].nickName[i]);
+		}
 	},
 	click: function(data) {
 		if (data.toElement.className === "cat") {
@@ -105,7 +108,8 @@ var myViewModel = {
 			this.catType("newborn");
 		}
 	},
-	catType: ko.observable(model.cats[model.currentCat].type)
+	catType: ko.observable(model.cats[model.currentCat].type),
+	catNickname: ko.observableArray()
 };
 
 myViewModel.init();

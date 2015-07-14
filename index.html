@@ -15,6 +15,9 @@
   <img src="images/cat_picture1.jpg" data-bind="click: clicker">
   <p data-bind="text: catType"></p>
   <p data-bind="text: catAge"></p>
+  <ul data-bind="foreach: catNickname">
+    <li data-bind="text: $data"></li>
+  </ul>
 </body>
 </html>
 <script type='text/javascript' src='knockout.js'></script>
