@@ -65,7 +65,7 @@ var Cat = function() {
 var myViewModel = function() {
 	this.theCat = ko.observable(new Cat());
 	this.clicker = function() {
-		this.theCat().catAge(this.theCat().catAge()+1);
+		this.catAge(this.catAge()+1);
 	}
 };
 
