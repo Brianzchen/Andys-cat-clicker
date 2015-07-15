@@ -8,12 +8,12 @@
   <header>
     <h1>Cat Clicker Premium Pro!</h1>
   </header>
-  <p data-bind="text: catType"></p>
-  <p data-bind="text: catAge"></p>
-  <img src="images/cat_picture1.jpg" data-bind="click: clicker">
-  <ul data-bind="foreach: catNickname">
-    <li data-bind="text: $data"></li>
-  </ul>
+      <p data-bind="text: theCat().catType"></p>
+      <p data-bind="text: theCat().catAge"></p>
+      <img src="" data-bind="click: clicker, attr: {src: theCat().catImage}">
+      <ul data-bind="foreach: theCat().catNickname">
+        <li data-bind="text: $data"></li>
+      </ul>
 </body>
 </html>
 <script type='text/javascript' src='knockout.js'></script>

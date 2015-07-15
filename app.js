@@ -47,17 +47,25 @@ var model = {
 		"currentCat": 0
 };
 
-var myViewModel = {
-	catAge: ko.observable(model.cats[model.currentCat].click),
-	catType: ko.observable(model.cats[model.currentCat].type),
-	catNickname: ko.observableArray(model.cats[model.currentCat].nickName),
-	clicker: function() {
-		this.catAge(this.catAge()+1);
+var Cat = function() {
+	this.catAge = ko.observable(0);
+	this.catNickname =  ko.observableArray(model.cats[model.currentCat].nickName);
+	this.catImage = ko.observable(model.cats[model.currentCat].image);
+	this.catType = ko.computed(function() {
+		var type = model.cats[model.currentCat].type;
 		if (this.catAge() > 5) {
-			this.catType("pussy");
+			type = "pussy";
 		} else {
-			this.catType("newborn");
+			type = "newborn";
 		}
+		return type;
+	}, this);
+};
+
+var myViewModel = function() {
+	this.theCat = ko.observable(new Cat());
+	this.clicker = function() {
+		this.theCat().catAge(this.theCat().catAge()+1);
 	}
 };
 
