@@ -5,48 +5,42 @@ var model = {
 				"image": "images/cat_picture1.jpg",
 				"click": 0,
 				"type": "newborn",
-				"nickName": ["gangsta", "blh","fwef"],
-				"list": 0
+				"nickName": ["Cutie", "Cutie Catty"]
 			},
 			{
 				"name": "Freaked out cat",
 				"image": "images/cat_picture2.jpg",
 				"click": 0,
 				"type": "newborn",
-				"nickName": ["gangsta", "blh","fwef"],
-				"list": 1
+				"nickName": ["Errrrmaagurdd"]
 			},
 			{
 				"name": "Drugged up cat",
 				"image": "images/cat_picture3.jpg",
 				"click": 0,
 				"type": "newborn",
-				"nickName": ["gangsta", "blh","fwef"],
-				"list": 2
+				"nickName": ["Forever Stoned", "Half Cast"]
 			},
 			{
-				"name": "Pouncable cat",
+				"name": "Marshmallow cat",
 				"image": "images/cat_picture4.jpg",
 				"click": 0,
 				"type": "newborn",
-				"nickName": ["gangsta", "blh","fwef"],
-				"list": 3
+				"nickName": ["Drowing in cuteness", "Snowflake", "Kuteness Overload"]
 			},
 			{
 				"name": "Fanged cat",
 				"image": "images/cat_picture5.jpg",
 				"click": 0,
 				"type": "newborn",
-				"nickName": ["gangsta", "blh","fwef"],
-				"list": 4
+				"nickName": ["Dangerous", "Evil but still Cute"]
 			},
 			{
 				"name": "Unimpressed cat",
 				"image": "images/cat_picture6.jpg",
 				"click": 0,
 				"type": "newborn",
-				"nickName": ["gangsta", "blh","fwef"],
-				"list": 5
+				"nickName": ["Sharon Wang's Kitty Cat Cat"]
 			}
 		]
 };
@@ -58,10 +52,18 @@ var Cat = function(data) {
 	this.catImage = ko.observable(data.image);
 	this.catType = ko.computed(function() {
 		var type = data.	type;
-		if (this.catAge() > 5) {
-			type = "pussy";
+		if (this.catAge() < 5) {
+			type = "Newborn";
+		} else if (this.catAge() < 10) {
+			type = "Infant";
+		} else if (this.catAge() < 20) {
+			type = "Teen";
+		} else if (this.catAge() < 30) {
+			type = "Young Adult";
+		} else if (this.catAge() < 50) {
+			type = "Adult";
 		} else {
-			type = "newborn";
+			type = "Old Kitty";
 		}
 		return type;
 	}, this);

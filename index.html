@@ -12,9 +12,11 @@
     <div data-bind="foreach: self.catList">
       <button data-bind="text: catName, click: self.buttoned"></button>
     </div>
+    <h2 data-bind="text: catName"></h2>
     <p data-bind="text: catType"></p>
     <p data-bind="text: catAge"></p>
     <img src="" data-bind="click: clicker, attr: {src: catImage}">
+    <h3>Nicknames</h3>
     <ul data-bind="foreach: catNickname">
       <li data-bind="text: $data"></li>
     </ul>
