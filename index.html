@@ -10,7 +10,7 @@
   </header>
   <div data-bind="with: theCat">
     <div data-bind="foreach: self.catList">
-      <button data-bind="text: name, click: self.buttoned"></button>
+      <button data-bind="text: catName, click: self.buttoned"></button>
     </div>
     <p data-bind="text: catType"></p>
     <p data-bind="text: catAge"></p>

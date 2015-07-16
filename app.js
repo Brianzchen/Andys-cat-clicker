@@ -71,14 +71,14 @@ var myViewModel = function() {
 	var self = this;
 	self.catList = ko.observableArray();
 	for (i = 0; i<model.cats.length; i++) {
-		catList.push(model.cats[i]);
+		catList.push(ko.observable(new Cat(model.cats[i])));
 	}
-	self.theCat = ko.observable(new Cat(catList()[0]));
+	self.theCat = ko.observable(catList()[0]);
 	this.clicker = function() {
 		this.catAge(this.catAge()+1);
 	}
 	self.buttoned = function(data) {
-		self.theCat(new Cat(data));
+		self.theCat(data);
 	}
 };
 
